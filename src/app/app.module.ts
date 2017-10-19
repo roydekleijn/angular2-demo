@@ -1,16 +1,24 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
+import {AssistantListAppComponent} from "./assistant-list.component";
+import {MatButtonModule, MatCheckboxModule, MatInputModule} from "@angular/material";
+import {FormsModule} from "@angular/forms";
+import {AssistantService} from "./shared/services/assistant/assistant.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AssistantListAppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    MatButtonModule, MatCheckboxModule, MatInputModule, FormsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  exports: [MatButtonModule, MatCheckboxModule, MatInputModule],
+  providers: [AssistantService],
+  bootstrap: [AssistantListAppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

@@ -1,0 +1,65 @@
+<mat-sidenav fullscreen>
+  <mat-sidenav #sidenav>
+    <mat-nav-list>
+      <a mat-list-item *ngFor="let view of views">
+        <mat-icon mat-list-icon>{{view.icon}}</mat-icon>
+        <span mat-line>{{view.name}}</span>
+        <span mat-line class="secondary">{{view.description}}</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-toolbar color="primary">
+    <button mat-icon-button (click)="sidenav.open()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    Google I/O Extended Cochabamba
+    <button mat-fab (click)="formShowing=!formShowing">
+      <mat-icon>add</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <div class="form" *ngIf="formShowing">
+    <mat-card>
+      <mat-card-title>Registration Form</mat-card-title>
+      <mat-card-content>
+        <form>
+          <input matInput placeholder="Name" [(ngModel)]="model.name.first">
+          <input matInput  placeholder="City" [(ngModel)]="model.location.city">
+          <input matInput  placeholder="Description" [(ngModel)]="model.description">
+          <input matInput  placeholder="Profile Picture URL" [(ngModel)]="model.picture.large">
+          <mat-radio-group [(ngModel)]="model.gender">
+            <mat-radio-button value="male">Male</mat-radio-button>
+            <mat-radio-button value="female">Female</mat-radio-button>
+          </mat-radio-group>
+          <div>
+            <mat-checkbox indeterminate="true">Angular 2</mat-checkbox>
+            <mat-checkbox indeterminate="true">Firebase</mat-checkbox>
+            <mat-checkbox indeterminate="true">VR</mat-checkbox>
+            <mat-checkbox indeterminate="true">Android</mat-checkbox>
+          </div>
+        </form>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-raised-button color="accent" (click)="add()">ADD</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div class="card-container">
+    <mat-card *ngFor="let assistant of assistants">
+      <mat-card-title-group>
+        <img *ngIf="assistant.picture.large" mat-card-sm-image src="{{assistant.picture.large}}">
+        <img *ngIf="!assistant.picture.large" mat-card-sm-image src="app/images/angular.jpg">
+        <mat-card-title>{{assistant.name.first}} {{assistant.name.last}}</mat-card-title>
+        <mat-card-subtitle>{{assistant.location.city}}</mat-card-subtitle>
+        <mat-card-subtitle *ngIf="assistant.description">
+          {{assistant.description}}
+        </mat-card-subtitle>
+        <mat-card-subtitle *ngIf="!assistant.description">
+          Lorem ipsum dolor sit amet
+        </mat-card-subtitle>
+      </mat-card-title-group>
+    </mat-card>
+  </div>
+
+</mat-sidenav>
