@@ -8,7 +8,7 @@
   color: rgba(0,0,0,0.54);
 }
 
-[md-fab] {
+[mat-fab] {
   position: absolute;
   right: 3%;
   top: 34px;

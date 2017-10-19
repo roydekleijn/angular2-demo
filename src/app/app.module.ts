@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 
 import {AssistantListAppComponent} from "./assistant-list.component";
 import {
-  MatButtonModule, MatCardModule, MatCheckboxModule, MatIconModule, MatInputModule, MatListModule, MatSidenavModule,
+  MatButtonModule, MatCardModule, MatCheckboxModule, MatIconModule, MatInputModule, MatListModule,
   MatToolbarModule
 } from "@angular/material";
 import {FormsModule} from "@angular/forms";
@@ -18,9 +18,7 @@ import {HttpClientModule} from "@angular/common/http";
     BrowserModule,
     HttpClientModule,
     MatButtonModule, MatCheckboxModule, MatInputModule, FormsModule, MatCardModule, MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-
+    MatIconModule, MatListModule
   ],
   exports: [MatButtonModule,
     MatCheckboxModule,
@@ -28,7 +26,7 @@ import {HttpClientModule} from "@angular/common/http";
     MatCardModule,
     MatToolbarModule,
     MatIconModule,
-    MatButtonModule,
+    MatListModule
 ],
   providers: [AssistantService],
   bootstrap: [AssistantListAppComponent]

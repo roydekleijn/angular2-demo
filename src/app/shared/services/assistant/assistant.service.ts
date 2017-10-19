@@ -9,7 +9,7 @@ export class AssistantService {
   constructor(private http: HttpClient) {
   }
 
-  private USER_URL = 'http://randomuser.me/api/'; // http://api.randomuser.me';
+  private USER_URL = 'https://randomuser.me/api/'; // http://api.randomuser.me';
 
   getAssistants(number:string): Observable<Assistants> {
     return this.http.get<any>(this.USER_URL, {
